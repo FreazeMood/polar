@@ -41,6 +41,7 @@ export const CheckoutProductDescription = ({
         <div
           ref={textRef}
           id="description"
+          dir="auto"
           className={`${proseClassName} line-clamp-4 md:line-clamp-none`}
         >
           <Markdown options={markdownOptions}>{description}</Markdown>
@@ -59,7 +60,7 @@ export const CheckoutProductDescription = ({
         isShown={isModalOpen}
         hide={() => setIsModalOpen(false)}
         modalContent={
-          <div className={`${proseClassName} p-6`}>
+          <div dir="auto" className={`${proseClassName} p-6`}>
             <Markdown options={markdownOptions}>{description}</Markdown>
           </div>
         }

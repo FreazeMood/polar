@@ -8,7 +8,11 @@ vi.mock('./config', async (importOriginal) => {
   }
 })
 
-import { getTranslationLocale, isAcceptedLocale } from './index'
+import {
+  getLocaleDirection,
+  getTranslationLocale,
+  isAcceptedLocale,
+} from './index'
 
 describe('isAcceptedLocale', () => {
   it('accepts a supported language', () => {
@@ -39,5 +43,20 @@ describe('isAcceptedLocale', () => {
 describe('getTranslationLocale', () => {
   it('returns a region-only supported locale as is', () => {
     expect(getTranslationLocale('zh-TW' as never)).toBe('zh-TW')
+  })
+})
+
+describe('getLocaleDirection', () => {
+  it('is right-to-left for Hebrew', () => {
+    expect(getLocaleDirection('he')).toBe('rtl')
+  })
+
+  it('is right-to-left for a region variant of Hebrew', () => {
+    expect(getLocaleDirection('he-IL')).toBe('rtl')
+  })
+
+  it('is left-to-right for every other locale', () => {
+    expect(getLocaleDirection('en')).toBe('ltr')
+    expect(getLocaleDirection('fr-CA')).toBe('ltr')
   })
 })

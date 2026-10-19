@@ -204,3 +204,26 @@ describe('Checkout page', () => {
     expect(screen.getByRole('dialog')).toHaveTextContent('Test Product')
   })
 })
+
+describe('Checkout direction', () => {
+  it('renders left-to-right by default', () => {
+    const { container } = renderCheckout()
+
+    expect(container.querySelector('[dir="ltr"][lang="en"]')).not.toBeNull()
+    expect(container.querySelector('[dir="rtl"]')).toBeNull()
+  })
+
+  it('renders right-to-left for Hebrew', () => {
+    const { container } = renderCheckout({ locale: 'he' })
+
+    expect(container.querySelector('[dir="rtl"][lang="he"]')).not.toBeNull()
+  })
+
+  it('renders the embed right-to-left for Hebrew', () => {
+    const { container } = renderCheckout({ embed: true, locale: 'he' })
+
+    expect(
+      container.querySelector('#polar-embed-layout[dir="rtl"][lang="he"]'),
+    ).not.toBeNull()
+  })
+})

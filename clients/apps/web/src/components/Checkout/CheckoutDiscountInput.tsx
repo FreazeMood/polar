@@ -135,7 +135,7 @@ export const CheckoutDiscountInput = ({
                       addDiscountCode()
                     }}
                   />
-                  <div className="absolute inset-y-0 right-1 z-10 flex items-center">
+                  <div className="absolute inset-y-0 end-1 z-10 flex items-center">
                     {!hasDiscount && discountCode && (
                       <Button
                         type="button"

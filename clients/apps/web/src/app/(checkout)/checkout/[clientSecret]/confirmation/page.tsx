@@ -57,7 +57,12 @@ export default async function Page(props: {
   const locale = await resolveLocale(_locale, checkout.locale)
 
   return (
-    <CheckoutLayout checkout={checkout} embed={embed === 'true'} theme={theme}>
+    <CheckoutLayout
+      checkout={checkout}
+      embed={embed === 'true'}
+      theme={theme}
+      locale={locale}
+    >
       <CheckoutConfirmation
         checkout={checkout}
         embed={embed === 'true'}

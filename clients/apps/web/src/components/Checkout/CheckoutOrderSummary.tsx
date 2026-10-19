@@ -67,7 +67,7 @@ export const CheckoutOrderSummary = ({
                     className="h-10 w-10 rounded-lg object-cover"
                   />
                   {checkout.product.medias.length > 1 && (
-                    <span className="absolute right-0 bottom-0 rounded bg-black/60 px-1 py-0.5 text-[10px] leading-none font-medium text-white">
+                    <span className="absolute end-0 bottom-0 rounded bg-black/60 px-1 py-0.5 text-[10px] leading-none font-medium text-white">
                       +{checkout.product.medias.length - 1}
                     </span>
                   )}
@@ -89,7 +89,10 @@ export const CheckoutOrderSummary = ({
             </Dialog>
           )}
           <div className="flex min-w-0 flex-col gap-y-1">
-            <span className="text-sm font-medium text-gray-900 dark:text-white">
+            <span
+              dir="auto"
+              className="text-sm font-medium text-gray-900 dark:text-white"
+            >
               {checkout.product.name}
             </span>
           </div>

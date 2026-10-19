@@ -17,7 +17,12 @@ const ClientPage = ({
   const { checkout } = useCheckout()
 
   return (
-    <CheckoutLayout checkout={checkout} embed={embed} theme={theme}>
+    <CheckoutLayout
+      checkout={checkout}
+      embed={embed}
+      theme={theme}
+      locale={locale}
+    >
       <Checkout embed={embed} theme={theme} locale={locale} />
     </CheckoutLayout>
   )

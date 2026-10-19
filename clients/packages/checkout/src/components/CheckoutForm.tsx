@@ -667,7 +667,7 @@ const BaseCheckoutForm = ({
                                   value={field.value || ''}
                                   disabled={validTaxID}
                                 />
-                                <div className="absolute inset-y-0 right-1 z-10 flex items-center gap-1">
+                                <div className="absolute inset-y-0 end-1 z-10 flex items-center gap-1">
                                   {!validTaxID && taxId && (
                                     <Button
                                       type="button"

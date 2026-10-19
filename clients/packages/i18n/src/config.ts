@@ -73,3 +73,7 @@ export const LOCALE_NAMES: Record<SupportedLocale, string> = {
   pl: 'Polish',
   he: 'Hebrew',
 }
+
+export const RTL_LOCALES = ['he'] as const satisfies readonly SupportedLocale[]
+
+export type LocaleDirection = 'ltr' | 'rtl'

@@ -1,11 +1,16 @@
 import { useMemo } from 'react'
 
-export { DEFAULT_LOCALE, LOCALE_NAMES, SUPPORTED_LOCALES } from './config'
-export type { AcceptedLocale, SupportedLocale } from './config'
+export {
+  DEFAULT_LOCALE,
+  LOCALE_NAMES,
+  RTL_LOCALES,
+  SUPPORTED_LOCALES,
+} from './config'
+export type { AcceptedLocale, LocaleDirection, SupportedLocale } from './config'
 export type { TranslateFn, TranslationKey, Translations } from './types'
 
-import type { AcceptedLocale, SupportedLocale } from './config'
-import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from './config'
+import type { AcceptedLocale, LocaleDirection, SupportedLocale } from './config'
+import { DEFAULT_LOCALE, RTL_LOCALES, SUPPORTED_LOCALES } from './config'
 import type {
   DeepPartialLocale,
   LocaleShape,
@@ -34,6 +39,13 @@ export function isAcceptedLocale(value: string): value is AcceptedLocale {
 
 export function isSupportedLocale(locale: string): locale is SupportedLocale {
   return SUPPORTED_LOCALES.includes(locale as SupportedLocale)
+}
+
+export function getLocaleDirection(locale: AcceptedLocale): LocaleDirection {
+  const language = getTranslationLocale(locale)
+  return RTL_LOCALES.includes(language as (typeof RTL_LOCALES)[number])
+    ? 'rtl'
+    : 'ltr'
 }
 
 import de from './locales/de'

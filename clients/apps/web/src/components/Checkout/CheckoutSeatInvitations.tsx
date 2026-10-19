@@ -172,7 +172,7 @@ const SeatInvitationsPanel = ({
                   className={`${input.error ? 'border-red-500' : ''}`}
                 />
                 {input.error && (
-                  <p className="mt-1 text-left text-xs text-red-500">
+                  <p className="mt-1 text-start text-xs text-red-500">
                     {input.error}
                   </p>
                 )}
@@ -208,7 +208,7 @@ const SeatInvitationsPanel = ({
               disabled={isSending}
               className="rounded-xl"
             >
-              <PlusIcon className="mr-2 h-4 w-4" />
+              <PlusIcon className="me-2 h-4 w-4" />
               Add another email
             </Button>
           )}
